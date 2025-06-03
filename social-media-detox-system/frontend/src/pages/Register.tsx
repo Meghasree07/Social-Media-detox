@@ -68,7 +68,6 @@ function Register() {
         </button>
       </form>
 
-      {/* Added paragraph here */}
       <p className="text-sm mt-4 text-center">
         Already registered?{" "}
         <a href="/login" className="text-blue-600 hover:underline">

@@ -18,6 +18,8 @@ function Login() {
 
       if (res.status === 200) {
         alert("Login successful!");
+          localStorage.setItem("userId", res.data.user._id);
+
         navigate("/dashboard");
       }
     } catch (err) {

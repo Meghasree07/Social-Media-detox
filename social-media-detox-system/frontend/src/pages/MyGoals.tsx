@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 type Goal = {
   id: number;
   name: string;
-  log: string[]; // dates in YYYY-MM-DD format for days completed
+  log: string[]; 
 };
 
 const initialGoals: Goal[] = [
@@ -76,7 +76,6 @@ const Goals: React.FC = () => {
  
       <h2 className="text-4xl font-bold mb-8">My Goals & Streaks 🔥</h2>
 
-      {/* Add Goal Button */}
       <button
         onClick={() => setAdding((prev) => !prev)}
         className="absolute top-8 right-8 text-white text-4xl font-bold rounded-full w-12 h-12 flex items-center justify-center bg-yellow-400 hover:bg-yellow-500 shadow-lg transition"
@@ -85,7 +84,6 @@ const Goals: React.FC = () => {
         {adding ? "×" : "+"}
       </button>
 
-      {/* Input to add new goal */}
       {adding && (
         <div className="mb-6 max-w-md mx-auto">
           <input

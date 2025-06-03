@@ -5,7 +5,7 @@ interface Challenge {
   id: number;
   title: string;
   description: string;
-  progress: number; // 0 to 100
+  progress: number; 
 }
 const initialChallenges: Challenge[] = [
   {
@@ -42,17 +42,15 @@ const initialChallenges: Challenge[] = [
 
 const Challenges: React.FC = () => {
   const [challenges, setChallenges] = useState<Challenge[]>(() => {
-    // Load saved progress from localStorage if exists
+    
     const saved = localStorage.getItem("challenges");
     return saved ? JSON.parse(saved) : initialChallenges;
   });
 
-  // Save challenges progress to localStorage on every update
   useEffect(() => {
     localStorage.setItem("challenges", JSON.stringify(challenges));
   }, [challenges]);
 
-  // Handle updating progress
   const updateProgress = (id: number, newProgress: number) => {
     setChallenges((prev) =>
       prev.map((c) =>
@@ -63,7 +61,6 @@ const Challenges: React.FC = () => {
     );
   };
 
-  // Reset all challenges progress
   const resetChallenges = () => {
     if (
       window.confirm(
@@ -75,7 +72,6 @@ const Challenges: React.FC = () => {
     }
   };
 
-  // Split challenges into completed and ongoing
   const completedChallenges = challenges.filter((c) => c.progress >= 100);
   const ongoingChallenges = challenges.filter((c) => c.progress < 100);
 

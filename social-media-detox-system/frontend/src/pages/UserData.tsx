@@ -11,7 +11,6 @@ const suggestions = [
 ];
 
 const UserData: React.FC = () => {
-  // Load from localStorage or use default structure
  const [usageData, setUsageData] = useState<Record<string, { today: string; limit: string }>>(() => {
   const stored = localStorage.getItem("usageData");
   const initialData = platforms.reduce((acc, platform) => {
@@ -21,7 +20,6 @@ const UserData: React.FC = () => {
 
   if (stored) {
     const parsed = JSON.parse(stored);
-    // Only include valid platforms and preserve existing data
     platforms.forEach((platform) => {
       if (parsed[platform]) {
         initialData[platform] = parsed[platform];

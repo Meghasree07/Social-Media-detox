@@ -16,7 +16,7 @@ import UserData from './pages/UserData';
 
 function AppWrapper() {
   const location = useLocation();
-  const hideNavbarOn = ['/']; // Don't show navbar on Login
+  const hideNavbarOn = ['/']; 
 
   return (
     <>

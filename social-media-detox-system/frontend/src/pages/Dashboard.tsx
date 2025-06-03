@@ -1,10 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
+import Challenge from "@/assets/mindfulness/challenge.jpg";
+import goals from "@/assets/mindfulness/goals.jpg";
+import userdata from "@/assets/mindfulness/userdata.jpg";
+import userprofile from "@/assets/mindfulness/userprofile.jpg";
 
 function Dashboard() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Add logout logic if any (e.g., clearing auth tokens)
     navigate("/login");
   };
 
@@ -22,36 +25,45 @@ function Dashboard() {
   </nav>
       
 
-      <main className="flex-1 p-6">
-        <h2 className="text-2xl font-semibold mb-4">Dashboard</h2>
+<main className="flex-1 p-6">
+      <h2 className="text-2xl font-semibold mb-4">Dashboard</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Link to="/mygoals" className="block">
-            <div className="bg-white rounded-lg shadow p-4 text-center hover:bg-indigo-50 transition cursor-pointer">
-              <h3 className="text-xl font-bold text-indigo-600">My Goals</h3>
-            </div>
-          </Link>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        <Link to="/mygoals" className="block">
+          <div className="bg-white rounded-lg shadow p-4 text-center hover:bg-indigo-50 transition cursor-pointer">
+            <h3 className="text-xl font-bold text-indigo-600">My Goals</h3>
+          </div>
+        </Link>
 
-          <Link to="/challenges" className="block">
-            <div className="bg-white rounded-lg shadow p-4 text-center hover:bg-blue-50 transition cursor-pointer">
-              <h3 className="text-xl font-bold text-blue-600">Challenges</h3>
-            </div>
-          </Link>
+        <Link to="/challenges" className="block">
+          <div className="bg-white rounded-lg shadow p-4 text-center hover:bg-blue-50 transition cursor-pointer">
+            <h3 className="text-xl font-bold text-blue-600">Challenges</h3>
+          </div>
+        </Link>
 
-          <Link to="/profile" className="block">
-            <div className="bg-white rounded-lg shadow p-4 text-center hover:bg-green-50 transition cursor-pointer">
-              <h3 className="text-xl font-bold text-green-600">User Profile</h3>
-            </div>
-          </Link>
+        <Link to="/profile" className="block">
+          <div className="bg-white rounded-lg shadow p-4 text-center hover:bg-green-50 transition cursor-pointer">
+            <h3 className="text-xl font-bold text-green-600">User Profile</h3>
+          </div>
+        </Link>
 
-          <Link to="/userdata" className="bg-white rounded-lg shadow p-4 text-center cursor-pointer hover:shadow-lg transition">
-             <h3 className="text-xl font-bold text-pink-600">User Data</h3>
-         </Link>
+        <Link to="/userdata" className="block">
+          <div className="bg-white rounded-lg shadow p-4 text-center hover:shadow-lg transition cursor-pointer">
+            <h3 className="text-xl font-bold text-pink-600">User Data</h3>
+          </div>
+        </Link>
+      </div>
 
-        </div>
-      </main>
-    </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <img src={goals} alt="Goals" className="w-full h-auto rounded-xl shadow-lg object-cover" />
+        <img src={Challenge} alt="Challenges" className="w-full h-auto rounded-xl shadow-lg object-cover" />
+        <img src={userprofile} alt="User Profile" className="w-full h-auto rounded-xl shadow-lg object-cover" />
+        <img src={userdata} alt="User Data" className="w-full h-auto rounded-xl shadow-lg object-cover" />
+      </div>
+    </main>
+  
+  </div>
   );
-}
 
+}
 export default Dashboard;

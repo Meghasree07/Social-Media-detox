@@ -25,13 +25,10 @@ router.post("/register", async (req, res) => {
 });
 
 
-
-// LOGIN
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // Find user by email
     const user = await User.findOne({ email });
 
     if (!user) {
@@ -50,5 +47,29 @@ router.post("/login", async (req, res) => {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 });
+// Get current user details by ID
+router.get('/:id', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    res.json(user);
+  } catch (err) {
+    res.status(500).json({ message: 'Error fetching user data' });
+  }
+});
+
+// Update user
+router.put('/:id', async (req, res) => {
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.id,
+      { $set: req.body },
+      { new: true }
+    );
+    res.json(updatedUser);
+  } catch (err) {
+    res.status(500).json({ message: 'Error updating user data' });
+  }
+});
 
 module.exports = router;
+
